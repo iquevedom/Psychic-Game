@@ -1,2 +1,2 @@
 # Psychic-Game
-Guess what letter i'm thinkig  of
+Guess what letter i'm thinking  of
