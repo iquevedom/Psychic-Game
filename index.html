@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Psychic-Game</title>
+</head>
+
+<body>
+    <!-- 
+    <script type="text/javascript"> -->
+    <!--         
+/*     I need the user to make a choice
+    Computer to make a choice
+    Capture those choices
+      Compare these choices and determine a win or loss 
+    Display the result to the user */ -->
+
+    <h1>The Psychic-Game</h1>
+    <div id="game">
+        <p>Guess what letter I'm thinking of : </p>
+    </div>
+
+    <!-- Javascript code for the game--> 
+    <script type="text/javascript">
+
+        /* Choices of the computer */
+        var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        /* Variables declaration */
+        var wins = 0;
+        var losses = 0;
+        var timess = 0;
+
+        /* For Loop of the game */
+        for (var times = 0; times < 10; times++) {
+
+            /* Users makes his choice */
+            document.onkeyup = function () {
+                var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+            
+                /* Computer makes his choice */
+                var computerGuess = options[Math.floor(Math.random() * options.length)];
+
+                // If the user doesn't choose an alphabet letter...
+                if (options.indexOf(userGuess) === -1) {
+                    alert("Please select a letter of the alphabet!!.");
+                    console.log(options.indexOf(userGuess) === -1);
+                }   // If yes...
+                    else {  /* Alert user wins and adds 1 to wins var */
+                         if (userGuess == computerGuess) {
+                            wins++;
+                            alert("Your choice : " + userGuess + " Computer choice : " + computerGuess + ". You win!!!");
+                         } else { /* Alert user lose and adds 2 to loses */
+                            losses++;
+                            alert("Your choice : " + userGuess + " Computer choice : " + computerGuess + ". You lose!!!");
+                            }
+
+                    }
+
+                /* Displays in the screen the results */
+                var html = "<p>Guess what the letter I'm thinking of :</p>" +
+                    "<p> wins : " + wins + "</p>" +
+                    "<p>Losses : " + losses + "</p>" +
+                    "<p>times : " + timess + "</p>" +
+                    "<br>" + "<p> User = " + userGuess + " Computer = " + computerGuess + "</p>";
+
+                document.querySelector('#game').innerHTML = html;
+            }
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
